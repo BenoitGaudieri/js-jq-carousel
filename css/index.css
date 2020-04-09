@@ -264,7 +264,7 @@ body {
 .chevrons-left {
     font-weight: 900;
     color: #6f7b97;
-    font-size: 40px;
+    font-size: 80px;
     position: absolute;
     top: 50%;
     left: 20%;
@@ -274,7 +274,7 @@ body {
 .chevrons-right {
     font-weight: 900;
     color: #031c4e;
-    font-size: 40px;
+    font-size: 80px;
     position: absolute;
     top: 50%;
     right: 20%;
