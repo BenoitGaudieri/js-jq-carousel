@@ -5,7 +5,7 @@ $(document).ready(function () {
     var nextImage = $(".active").next("img");
     var prevImage = $(".active").prev("img");
 
-    function nextPrev() {
+    function updateVar() {
         nextImage = $(".active").next("img");
         prevImage = $(".active").prev("img");
         console.log(nextImage);
@@ -18,7 +18,7 @@ $(document).ready(function () {
         activeImage.removeClass("active");
         prevImage.addClass("active");
         activeImage = $(".active");
-        nextPrev();
+        updateVar();
     }
 
     function next() {
@@ -28,7 +28,7 @@ $(document).ready(function () {
         activeImage.removeClass("active");
         nextImage.addClass("active");
         activeImage = $(".active");
-        nextPrev();
+        updateVar();
     }
 
     before.click(function () {
@@ -40,7 +40,6 @@ $(document).ready(function () {
     });
 
     $(document).keydown(function (e) {
-        console.log(e.keyCode);
         if (e.keyCode == 37) {
             back();
         } else if (e.keyCode == 39) {
