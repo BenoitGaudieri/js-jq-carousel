@@ -1,24 +1,51 @@
 $(document).ready(function () {
     var before = $(".chevrons-left i");
     var after = $(".chevrons-right i");
-    var activeImage = $(".active");
-    var nextImage = $(".active").next();
-    var prevImage = $(".active").prev();
+    var activeImage = $("img.active");
+    var nextImage = $(".active").next("img");
+    var prevImage = $(".active").prev("img");
 
-    before.click(function () {
+    function nextPrev() {
+        nextImage = $(".active").next("img");
+        prevImage = $(".active").prev("img");
+        console.log(nextImage);
+    }
+
+    function back() {
+        if (activeImage.hasClass("first")) {
+            prevImage = $("img.last");
+        }
         activeImage.removeClass("active");
         prevImage.addClass("active");
         activeImage = $(".active");
-        nextImage = $(".active").next();
-        prevImage = $(".active").prev();
-    });
+        nextPrev();
+    }
 
-    after.click(function () {
+    function next() {
+        if (activeImage.hasClass("last")) {
+            nextImage = $("img.first");
+        }
         activeImage.removeClass("active");
         nextImage.addClass("active");
         activeImage = $(".active");
-        nextImage = $(".active").next();
-        prevImage = $(".active").prev();
+        nextPrev();
+    }
+
+    before.click(function () {
+        back();
+    });
+
+    after.click(function () {
+        next();
+    });
+
+    $(document).keydown(function (e) {
+        console.log(e.keyCode);
+        if (e.keyCode == 37) {
+            back();
+        } else if (e.keyCode == 39) {
+            next();
+        }
     });
 
     // end Doc ready
