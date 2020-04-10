@@ -254,7 +254,7 @@ body {
 .image {
     display: none;
     vertical-align: middle;
-    /* TODO: ADD SHADOW */
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
 }
 
 .active {

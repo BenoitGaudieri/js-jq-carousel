@@ -10,19 +10,29 @@ $(document).ready(function () {
     var imgCollection = $(".image");
     var controlsDiv = $(".controls");
 
-    // Populating the selector div based on how many images exist
-    for (var i = 1; i <= imgCollection.length; i++) {
-        controlsDiv.append(
-            "<i class='fas fa-circle controls__click' pic='" + i + "'></i>"
-        );
-    }
+    // Initialize selector
+    initSelector();
     // Reference for selector active
     var prevSelected = $(".controls__click:first-child");
     prevSelected.addClass("controls__click--selected");
     // All the selectors
     var controlsClick = $(".controls__click");
 
-    controlsClick.click(function () {
+    /**
+     * Populate the selector div based on how many images exist
+     */
+    function initSelector() {
+        for (var i = 1; i <= imgCollection.length; i++) {
+            controlsDiv.append(
+                "<i class='fas fa-circle controls__click' pic='" + i + "'></i>"
+            );
+        }
+    }
+
+    /**
+     * Switch the active image and selector using nth-child logic
+     */
+    function selectorClick() {
         // Reference for the image switch
         var clicked = $(this).attr("pic");
         // Change which selector is lit
@@ -33,14 +43,20 @@ $(document).ready(function () {
         activeImage.removeClass("active");
         $(".image:nth-child(" + clicked + ")").addClass("active");
         updateVar();
-    });
+    }
 
+    /**
+     * Update reference for image switch
+     */
     function updateVar() {
         activeImage = $(".active");
         nextImage = $(".active").next("img");
         prevImage = $(".active").prev("img");
     }
 
+    /**
+     * Previous image logic wrapping using :first-child
+     */
     function back() {
         if (activeImage.is(":first-child")) {
             prevImage = $(".image:last-child");
@@ -50,6 +66,9 @@ $(document).ready(function () {
         updateVar();
     }
 
+    /**
+     * Next image logic wrapping using :last-child
+     */
     function next() {
         if (activeImage.is(":last-child")) {
             nextImage = $(".image:first-child");
@@ -62,6 +81,9 @@ $(document).ready(function () {
     // back and forward
     before.click(back);
     after.click(next);
+
+    // Selector
+    controlsClick.click(selectorClick);
 
     $(document).keydown(function (e) {
         if (e.keyCode == 37) {
