@@ -13,6 +13,8 @@ $(document).ready(function () {
     function back() {
         if (activeImage.is(":first-child")) {
             prevImage = $(".image:last-child");
+        } else {
+            prevImage = $(".active").prev("img");
         }
         activeImage.removeClass("active");
         prevImage.addClass("active");

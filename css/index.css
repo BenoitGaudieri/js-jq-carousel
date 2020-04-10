@@ -264,21 +264,23 @@ body {
 .chevrons-left {
     font-weight: 900;
     /* color: #6f7b97; */
-    color: #031c4e;
-    font-size: 80px;
+    color: #ff9d00;
+    font-size: 150px;
     position: absolute;
     top: 50%;
     left: 20%;
+    transform: translateY(-50%);
     cursor: pointer;
 }
 
 .chevrons-right {
     font-weight: 900;
-    color: #031c4e;
-    font-size: 80px;
+    color: #ff9d00;
+    font-size: 150px;
     position: absolute;
     top: 50%;
     right: 20%;
+    transform: translateY(-50%);
     cursor: pointer;
 }
 
