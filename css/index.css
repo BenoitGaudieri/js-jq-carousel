@@ -254,6 +254,7 @@ body {
 .image {
     display: none;
     vertical-align: middle;
+    /* TODO: ADD SHADOW */
 }
 
 .active {
@@ -304,6 +305,13 @@ body {
     cursor: pointer;
     font-size: 20px;
     margin: 5px;
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+.controls__click--selected {
+    color: #000;
 }
 
 /* 

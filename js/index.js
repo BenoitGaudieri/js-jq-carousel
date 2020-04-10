@@ -1,24 +1,35 @@
 $(document).ready(function () {
+    // Click reference
     var before = $(".chevrons-left i");
     var after = $(".chevrons-right i");
+    // Image reference
     var activeImage = $("img.active");
     var nextImage = $(".active").next("img");
     var prevImage = $(".active").prev("img");
+    // Div reference
     var imgCollection = $(".image");
     var controlsDiv = $(".controls");
 
+    // Populating the selector div based on how many images exist
     for (var i = 1; i <= imgCollection.length; i++) {
         controlsDiv.append(
             "<i class='fas fa-circle controls__click' pic='" + i + "'></i>"
         );
     }
-
+    // Reference for selector active
+    var prevSelected = $(".controls__click:first-child");
+    prevSelected.addClass("controls__click--selected");
+    // All the selectors
     var controlsClick = $(".controls__click");
-    console.log(controlsClick.length);
 
     controlsClick.click(function () {
+        // Reference for the image switch
         var clicked = $(this).attr("pic");
-        console.log(clicked);
+        // Change which selector is lit
+        prevSelected.toggleClass("controls__click--selected");
+        $(this).addClass("controls__click--selected");
+        prevSelected = $(this);
+        // Image switch
         activeImage.removeClass("active");
         $(".image:nth-child(" + clicked + ")").addClass("active");
         updateVar();
