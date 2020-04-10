@@ -8,12 +8,11 @@ $(document).ready(function () {
     function updateVar() {
         nextImage = $(".active").next("img");
         prevImage = $(".active").prev("img");
-        console.log(nextImage);
     }
 
     function back() {
-        if (activeImage.hasClass("first")) {
-            prevImage = $("img.last");
+        if (activeImage.is(":first-child")) {
+            prevImage = $(".image:last-child");
         }
         activeImage.removeClass("active");
         prevImage.addClass("active");
@@ -22,8 +21,8 @@ $(document).ready(function () {
     }
 
     function next() {
-        if (activeImage.hasClass("last")) {
-            nextImage = $("img.first");
+        if (activeImage.is(":last-child")) {
+            nextImage = $(".image:first-child");
         }
         activeImage.removeClass("active");
         nextImage.addClass("active");
