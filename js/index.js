@@ -4,6 +4,25 @@ $(document).ready(function () {
     var activeImage = $("img.active");
     var nextImage = $(".active").next("img");
     var prevImage = $(".active").prev("img");
+    var imgCollection = $(".image");
+    var controlsDiv = $(".controls");
+
+    for (var i = 1; i <= imgCollection.length; i++) {
+        controlsDiv.append(
+            "<i class='fas fa-circle controls__click' pic='" + i + "'></i>"
+        );
+    }
+
+    var controlsClick = $(".controls__click");
+    console.log(controlsClick.length);
+
+    controlsClick.click(function () {
+        var clicked = $(this).attr("pic");
+        console.log(clicked);
+        activeImage.removeClass("active");
+        $(".image:nth-child(" + clicked + ")").addClass("active");
+        updateVar();
+    });
 
     function updateVar() {
         activeImage = $(".active");
@@ -29,13 +48,9 @@ $(document).ready(function () {
         updateVar();
     }
 
-    before.click(function () {
-        back();
-    });
-
-    after.click(function () {
-        next();
-    });
+    // back and forward
+    before.click(back);
+    after.click(next);
 
     $(document).keydown(function (e) {
         if (e.keyCode == 37) {

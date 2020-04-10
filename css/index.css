@@ -284,6 +284,28 @@ body {
     cursor: pointer;
 }
 
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    transform: translateX(-50%);
+    min-width: 150px;
+    min-height: 30px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 15px;
+    vertical-align: middle;
+}
+
+.controls__click {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 5px;
+}
+
 /* 
    ____               _ _            _       
   / ___|_ __ __ _  __| (_) ___ _ __ | |_ ___ 
