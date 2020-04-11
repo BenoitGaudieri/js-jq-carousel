@@ -6,7 +6,7 @@ $(document).ready(function () {
     var activeImage;
     // Div reference
     var imgCollection;
-    var controlsDiv = $(".controls");
+    var controlsDiv;
     // Reference for selector active
     var activeSelect;
 
@@ -16,7 +16,7 @@ $(document).ready(function () {
     initSelector();
 
     // All the selectors
-    var controlsClick = $(".controls__click");
+    var controlsClick;
 
     // back and forward
     before.click(back);
@@ -48,11 +48,13 @@ $(document).ready(function () {
      * Populate the selector div based on how many images exist
      */
     function initSelector() {
+        controlsDiv = $(".controls");
         for (var i = 1; i <= imgCollection.length; i++) {
             controlsDiv.append(`<i class='controls__click' pic='${i}'></i>`);
         }
         activeSelect = $(".controls__click:first-child");
         activeSelect.addClass("controls__click--selected");
+        controlsClick = $(".controls__click");
     }
 
     /**
@@ -115,8 +117,8 @@ $(document).ready(function () {
 
     var space = $(".space");
     space.click(function () {
-        imgCollection = $(".img-collection");
-        imgCollection.html(
+        controlsDiv.empty();
+        $(".img-collection").html(
             "<img class='image resize--vh' src='img/spock-dj.jpg' alt='' />" +
                 "<img class='image resize' src='img/boldlygo.jpg' alt='' />" +
                 "<img class='image resize' src='img/star-trek.jpg' alt='' />" +
@@ -124,10 +126,16 @@ $(document).ready(function () {
                 "<img class='image resize' src='img/concert.jpg' alt='' />" +
                 "<img class='image resize' src='img/peace.jpg' alt='' />"
         );
-        controlsDiv.html("");
         initImage();
         initSelector();
         $("body").css("background-image", "url(img/space.jpg)");
+        var music = $("audio");
+        music[0].play();
+        space.addClass("animated flash");
+        $(".space span").replaceWith("Peace and Prosper 🖖");
+
+        // Bugfix:
+        controlsClick.click(selectorClick);
     });
 
     // end Doc ready
