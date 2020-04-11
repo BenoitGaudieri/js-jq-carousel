@@ -119,7 +119,7 @@ $(document).ready(function () {
     space.click(function () {
         controlsDiv.empty();
         $(".img-collection").html(
-            "<img class='image resize--vh' src='img/spock-dj.jpg' alt='' />" +
+            "<img class='image animated fadeOut delay-2s resize--vh' src='img/spock-dj.jpg' alt='' />" +
                 "<img class='image resize' src='img/boldlygo.jpg' alt='' />" +
                 "<img class='image resize' src='img/star-trek.jpg' alt='' />" +
                 "<img class='image resize' src='img/cast.jpg' alt='' />" +
