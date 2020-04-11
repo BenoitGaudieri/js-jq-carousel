@@ -132,7 +132,7 @@ $(document).ready(function () {
         var music = $("audio");
         music[0].play();
         space.addClass("animated flash");
-        $(".space span").replaceWith("Peace and Prosper 🖖");
+        $(".space span").replaceWith("Live long and prosper 🖖");
 
         // Bugfix:
         controlsClick.click(selectorClick);
