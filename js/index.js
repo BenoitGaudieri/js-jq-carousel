@@ -23,9 +23,7 @@ $(document).ready(function () {
      */
     function initSelector() {
         for (var i = 1; i <= imgCollection.length; i++) {
-            controlsDiv.append(
-                "<i class='fas fa-circle controls__click' pic='" + i + "'></i>"
-            );
+            controlsDiv.append(`<i class='controls__click' pic='${i}'></i>`);
         }
     }
 

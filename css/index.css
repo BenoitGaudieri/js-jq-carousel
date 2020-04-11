@@ -254,7 +254,7 @@ body {
 .image {
     display: none;
     vertical-align: middle;
-    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .active {
@@ -287,7 +287,7 @@ body {
 
 .controls {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     position: absolute;
     left: 50%;
@@ -303,15 +303,16 @@ body {
 
 .controls__click {
     cursor: pointer;
-    font-size: 20px;
+    width: 20px;
+    height: 20px;
     margin: 5px;
-    color: #fff;
+    background-color: #fff;
     border: 1px solid #000;
     border-radius: 50%;
 }
 
 .controls__click--selected {
-    color: #000;
+    background-color: #000;
 }
 
 /* 
@@ -325,6 +326,7 @@ body {
 .gradient--blue {
     background: linear-gradient(to right, #30cfd0 0%, #330867 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -332,11 +334,14 @@ body {
     background: linear-gradient(to right, #d03030 0%, #673308 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    /* vscode error gone */
+    background-clip: text;
 }
 
 .gradient--green {
     background: linear-gradient(to right, #30d078 0%, #436708 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -344,16 +349,22 @@ body {
     background: linear-gradient(to right, #a0a0a0 0%, #585858 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    /* vscode error gone */
+    background-clip: text;
 }
 
 .gradient--blk {
     background: linear-gradient(#646464 0%, #000000 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    /* vscode error gone */
+    background-clip: text;
 }
 
 .gradient--orange {
     background: linear-gradient(to right, #eb0823 0%, #fe8517 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    /* vscode error gone */
+    background-clip: text;
 }
