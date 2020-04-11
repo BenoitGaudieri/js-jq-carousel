@@ -249,14 +249,16 @@ body {
 /* Images */
 .box--image {
     display: flex;
-    width: 800px;
-    height: 600px;
 }
 
 .image {
     display: none;
     vertical-align: middle;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.image.resize {
+    width: 100vh;
 }
 
 .active {
@@ -266,12 +268,11 @@ body {
 /* Chevrons */
 .chevrons-left {
     font-weight: 900;
-    /* color: #6f7b97; */
     color: #ff9d00;
     font-size: 150px;
     position: absolute;
     top: 50%;
-    left: -20%;
+    left: 10%;
     transform: translateY(-50%);
     cursor: pointer;
 }
@@ -282,7 +283,7 @@ body {
     font-size: 150px;
     position: absolute;
     top: 50%;
-    right: -20%;
+    right: 10%;
     transform: translateY(-50%);
     cursor: pointer;
 }
@@ -293,7 +294,7 @@ body {
     align-items: center;
     position: absolute;
     left: 50%;
-    bottom: 10px;
+    bottom: 5%;
     transform: translateX(-50%);
     min-width: 150px;
     min-height: 30px;
@@ -315,6 +316,25 @@ body {
 
 .controls__click--selected {
     background-color: #000;
+}
+
+.space {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #000000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.resize {
+    max-width: 1000px;
+    max-height: 800px;
+}
+
+.resize--vh {
+    height: 100vh;
+    width: 100%;
 }
 
 /* 

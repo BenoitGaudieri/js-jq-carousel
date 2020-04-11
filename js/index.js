@@ -3,17 +3,18 @@ $(document).ready(function () {
     var before = $(".chevrons-left i");
     var after = $(".chevrons-right i");
     // Image reference
-    var activeImage = $(".image:first-child");
-    activeImage.toggle();
+    var activeImage;
     // Div reference
-    var imgCollection = $(".image");
+    var imgCollection;
     var controlsDiv = $(".controls");
+    // Reference for selector active
+    var activeSelect;
 
+    // Initialize image
+    initImage();
     // Initialize selector
     initSelector();
-    // Reference for selector active
-    var activeSelect = $(".controls__click:first-child");
-    activeSelect.addClass("controls__click--selected");
+
     // All the selectors
     var controlsClick = $(".controls__click");
 
@@ -33,6 +34,16 @@ $(document).ready(function () {
     });
 
     // FUNCTIONS
+
+    /**
+     * Initialize first image as active
+     */
+    function initImage() {
+        imgCollection = $(".image");
+        activeImage = $(".image:first-child");
+        activeImage.toggle();
+    }
+
     /**
      * Populate the selector div based on how many images exist
      */
@@ -40,6 +51,8 @@ $(document).ready(function () {
         for (var i = 1; i <= imgCollection.length; i++) {
             controlsDiv.append(`<i class='controls__click' pic='${i}'></i>`);
         }
+        activeSelect = $(".controls__click:first-child");
+        activeSelect.addClass("controls__click--selected");
     }
 
     /**
@@ -99,6 +112,23 @@ $(document).ready(function () {
         }
         activeSelect.toggleClass("controls__click--selected");
     }
+
+    var space = $(".space");
+    space.click(function () {
+        imgCollection = $(".img-collection");
+        imgCollection.html(
+            "<img class='image resize--vh' src='img/spock-dj.jpg' alt='' />" +
+                "<img class='image resize' src='img/boldlygo.jpg' alt='' />" +
+                "<img class='image resize' src='img/star-trek.jpg' alt='' />" +
+                "<img class='image resize' src='img/cast.jpg' alt='' />" +
+                "<img class='image resize' src='img/concert.jpg' alt='' />" +
+                "<img class='image resize' src='img/peace.jpg' alt='' />"
+        );
+        controlsDiv.html("");
+        initImage();
+        initSelector();
+        $("body").css("background-image", "url(img/space.jpg)");
+    });
 
     // end Doc ready
 });
