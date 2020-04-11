@@ -13,8 +13,8 @@ $(document).ready(function () {
     // Initialize selector
     initSelector();
     // Reference for selector active
-    var prevSelected = $(".controls__click:first-child");
-    prevSelected.addClass("controls__click--selected");
+    var activeSelect = $(".controls__click:first-child");
+    activeSelect.addClass("controls__click--selected");
     // All the selectors
     var controlsClick = $(".controls__click");
 
@@ -36,9 +36,9 @@ $(document).ready(function () {
         // Reference for the image switch
         var clicked = $(this).attr("pic");
         // Change which selector is lit
-        prevSelected.toggleClass("controls__click--selected");
+        activeSelect.toggleClass("controls__click--selected");
         $(this).addClass("controls__click--selected");
-        prevSelected = $(this);
+        activeSelect = $(this);
         // Image switch
         activeImage.removeClass("active");
         $(".image:nth-child(" + clicked + ")").addClass("active");
@@ -64,6 +64,14 @@ $(document).ready(function () {
         activeImage.removeClass("active");
         prevImage.addClass("active");
         updateVar();
+        // Move the selector
+        activeSelect.toggleClass("controls__click--selected");
+        if (activeSelect.is(":first-child")) {
+            activeSelect = $(".controls__click:last-child");
+        } else {
+            activeSelect = activeSelect.prev(".controls__click");
+        }
+        activeSelect.toggleClass("controls__click--selected");
     }
 
     /**
@@ -76,6 +84,14 @@ $(document).ready(function () {
         activeImage.removeClass("active");
         nextImage.addClass("active");
         updateVar();
+        // Move the selector
+        activeSelect.toggleClass("controls__click--selected");
+        if (activeSelect.is(":last-child")) {
+            activeSelect = $(".controls__click:first-child");
+        } else {
+            activeSelect = activeSelect.next(".controls__click");
+        }
+        activeSelect.toggleClass("controls__click--selected");
     }
 
     // back and forward
