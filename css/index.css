@@ -249,8 +249,8 @@ body {
 /* Images */
 .box--image {
     display: flex;
-    min-width: 800px;
-    min-height: 600px;
+    width: 800px;
+    height: 600px;
 }
 
 .image {
