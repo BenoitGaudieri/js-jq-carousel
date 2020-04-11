@@ -249,6 +249,7 @@ body {
 /* Images */
 .box--image {
     display: flex;
+    min-width: 700px;
 }
 
 .image {
@@ -269,7 +270,7 @@ body {
     font-size: 150px;
     position: absolute;
     top: 50%;
-    left: 20%;
+    left: -20%;
     transform: translateY(-50%);
     cursor: pointer;
 }
@@ -280,7 +281,7 @@ body {
     font-size: 150px;
     position: absolute;
     top: 50%;
-    right: 20%;
+    right: -20%;
     transform: translateY(-50%);
     cursor: pointer;
 }
@@ -291,7 +292,7 @@ body {
     align-items: center;
     position: absolute;
     left: 50%;
-    bottom: 20%;
+    bottom: 0;
     transform: translateX(-50%);
     min-width: 150px;
     min-height: 30px;
