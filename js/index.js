@@ -4,8 +4,6 @@ $(document).ready(function () {
     var after = $(".chevrons-right i");
     // Image reference
     var activeImage = $("img.active");
-    var nextImage = $(".active").next("img");
-    var prevImage = $(".active").prev("img");
     // Div reference
     var imgCollection = $(".image");
     var controlsDiv = $(".controls");
@@ -18,6 +16,22 @@ $(document).ready(function () {
     // All the selectors
     var controlsClick = $(".controls__click");
 
+    // back and forward
+    before.click(back);
+    after.click(next);
+
+    // Selector
+    controlsClick.click(selectorClick);
+
+    $(document).keydown(function (e) {
+        if (e.keyCode == 37) {
+            back();
+        } else if (e.keyCode == 39) {
+            next();
+        }
+    });
+
+    // FUNCTIONS
     /**
      * Populate the selector div based on how many images exist
      */
@@ -38,30 +52,22 @@ $(document).ready(function () {
         $(this).addClass("controls__click--selected");
         activeSelect = $(this);
         // Image switch
-        activeImage.removeClass("active");
-        $(".image:nth-child(" + clicked + ")").addClass("active");
-        updateVar();
-    }
-
-    /**
-     * Update reference for image switch
-     */
-    function updateVar() {
-        activeImage = $(".active");
-        nextImage = $(".active").next("img");
-        prevImage = $(".active").prev("img");
+        activeImage.toggleClass("active");
+        activeImage = $(".image:nth-child(" + clicked + ")");
+        activeImage.toggleClass("active");
     }
 
     /**
      * Previous image logic wrapping using :first-child
      */
     function back() {
+        activeImage.toggleClass("active");
         if (activeImage.is(":first-child")) {
-            prevImage = $(".image:last-child");
+            activeImage = $(".image:last-child");
+        } else {
+            activeImage = activeImage.prev("img");
         }
-        activeImage.removeClass("active");
-        prevImage.addClass("active");
-        updateVar();
+        activeImage.toggleClass("active");
         // Move the selector
         activeSelect.toggleClass("controls__click--selected");
         if (activeSelect.is(":first-child")) {
@@ -76,12 +82,13 @@ $(document).ready(function () {
      * Next image logic wrapping using :last-child
      */
     function next() {
+        activeImage.toggleClass("active");
         if (activeImage.is(":last-child")) {
-            nextImage = $(".image:first-child");
+            activeImage = $(".image:first-child");
+        } else {
+            activeImage = activeImage.next("img");
         }
-        activeImage.removeClass("active");
-        nextImage.addClass("active");
-        updateVar();
+        activeImage.toggleClass("active");
         // Move the selector
         activeSelect.toggleClass("controls__click--selected");
         if (activeSelect.is(":last-child")) {
@@ -91,21 +98,6 @@ $(document).ready(function () {
         }
         activeSelect.toggleClass("controls__click--selected");
     }
-
-    // back and forward
-    before.click(back);
-    after.click(next);
-
-    // Selector
-    controlsClick.click(selectorClick);
-
-    $(document).keydown(function (e) {
-        if (e.keyCode == 37) {
-            back();
-        } else if (e.keyCode == 39) {
-            next();
-        }
-    });
 
     // end Doc ready
 });
