@@ -3,7 +3,8 @@ $(document).ready(function () {
     var before = $(".chevrons-left i");
     var after = $(".chevrons-right i");
     // Image reference
-    var activeImage = $("img.active");
+    var activeImage = $(".image:first-child");
+    activeImage.toggle();
     // Div reference
     var imgCollection = $(".image");
     var controlsDiv = $(".controls");
@@ -52,22 +53,22 @@ $(document).ready(function () {
         $(this).addClass("controls__click--selected");
         activeSelect = $(this);
         // Image switch
-        activeImage.toggleClass("active");
+        activeImage.toggle("fast");
         activeImage = $(".image:nth-child(" + clicked + ")");
-        activeImage.toggleClass("active");
+        activeImage.fadeToggle();
     }
 
     /**
      * Previous image logic wrapping using :first-child
      */
     function back() {
-        activeImage.toggleClass("active");
+        activeImage.toggle("fast");
         if (activeImage.is(":first-child")) {
             activeImage = $(".image:last-child");
         } else {
             activeImage = activeImage.prev("img");
         }
-        activeImage.toggleClass("active");
+        activeImage.fadeToggle();
         // Move the selector
         activeSelect.toggleClass("controls__click--selected");
         if (activeSelect.is(":first-child")) {
@@ -82,13 +83,13 @@ $(document).ready(function () {
      * Next image logic wrapping using :last-child
      */
     function next() {
-        activeImage.toggleClass("active");
+        activeImage.toggle("fast");
         if (activeImage.is(":last-child")) {
             activeImage = $(".image:first-child");
         } else {
             activeImage = activeImage.next("img");
         }
-        activeImage.toggleClass("active");
+        activeImage.fadeToggle();
         // Move the selector
         activeSelect.toggleClass("controls__click--selected");
         if (activeSelect.is(":last-child")) {
