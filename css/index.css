@@ -296,6 +296,27 @@ body {
     left: 50%;
     bottom: 5%;
     transform: translateX(-50%);
+}
+
+.controls__click {
+    cursor: pointer;
+    margin: 5px;
+    border: 1px solid #000;
+    opacity: 0.5;
+}
+
+.thumb {
+    width: 100px;
+}
+
+.controls--circle {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
     min-width: 150px;
     min-height: 30px;
     background-color: #fff;
@@ -304,7 +325,7 @@ body {
     vertical-align: middle;
 }
 
-.controls__click {
+.controls__click--circle {
     cursor: pointer;
     width: 20px;
     height: 20px;
@@ -315,6 +336,7 @@ body {
 }
 
 .controls__click--selected {
+    opacity: 1;
     background-color: #000;
 }
 

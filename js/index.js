@@ -49,12 +49,34 @@ $(document).ready(function () {
      */
     function initSelector() {
         controlsDiv = $(".controls");
-        for (var i = 1; i <= imgCollection.length; i++) {
-            controlsDiv.append(`<i class='controls__click' pic='${i}'></i>`);
+        for (var i = 0; i < imgCollection.length; i++) {
+            // controlsDiv.append(`<i class='controls__click' pic='${i}'></i>`);
+            var thumb = imgCollection.eq(i);
+            thumb = thumb.clone();
+            thumb.removeClass("image");
+            thumb.addClass("controls__click thumb");
+            thumb.attr("pic", i + 1);
+            controlsDiv.append(thumb);
         }
         activeSelect = $(".controls__click:first-child");
         activeSelect.addClass("controls__click--selected");
         controlsClick = $(".controls__click");
+    }
+
+    function initSelectorCircle() {
+        controlsDiv = $(".controls");
+        controlsDiv.addClass("controls--circle");
+        for (var i = 1; i <= imgCollection.length; i++) {
+            controlsDiv.append(
+                `<i class='controls__click controls__click--circle' pic='${i}'></i>`
+            );
+        }
+        activeSelect = $(".controls__click--circle:first-child");
+        activeSelect.addClass("controls__click--selected");
+        controlsClick = $(".controls__click--circle");
+        console.log(controlsDiv);
+        console.log(activeSelect);
+        console.log(controlsClick);
     }
 
     /**
@@ -66,6 +88,7 @@ $(document).ready(function () {
         // Change which selector is lit
         activeSelect.toggleClass("controls__click--selected");
         $(this).addClass("controls__click--selected");
+
         activeSelect = $(this);
         // Image switch
         activeImage.toggle("fast");
@@ -127,7 +150,7 @@ $(document).ready(function () {
                 "<img class='image resize' src='img/peace.jpg' alt='' />"
         );
         initImage();
-        initSelector();
+        initSelectorCircle();
         $("body").css("background-image", "url(img/space.jpg)");
         var music = $("audio");
         music[0].play();
