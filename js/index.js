@@ -35,6 +35,8 @@ $(document).ready(function () {
             back();
         } else if (e.keyCode == 39) {
             next();
+        } else if (e.keyCode == 13) {
+            textCode();
         }
     });
 
@@ -145,9 +147,11 @@ $(document).ready(function () {
         activeSelect.toggleClass("controls__click--selected");
     }
 
+    var music = $("audio");
+
     var space = $(".space");
-    space.click(function () {
-        var music = $("audio");
+
+    function spaceInit() {
         if ($(".space span").html() == "Live long and prosper 🖖") {
             music[0].pause();
         } else {
@@ -171,7 +175,29 @@ $(document).ready(function () {
             // Bugfix:
             controlsClick.click(selectorClick);
         }
+    }
+
+    space.click(function () {
+        spaceInit();
     });
+
+    var balloon = $(".balloon");
+    balloon.toggle();
+    var insertText;
+
+    function textCode() {
+        balloon.toggle();
+        $(".insert-text").focus();
+        insertText = $(".insert-text").val();
+        console.log(insertText);
+        if (insertText == "space") {
+            spaceInit();
+        }
+
+        // if ($(".inner-text").html().is("space")) {
+        //     spaceInit();
+        // }
+    }
 
     // end Doc ready
 });
