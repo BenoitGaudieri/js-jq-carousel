@@ -1,3 +1,8 @@
+// Project:
+// Scrollable carousel with thumbnails preview selector and dot selector
+// Made by Benoit Gaudieri
+// 12/04/2020
+
 $(document).ready(function () {
     // Click reference
     var before = $(".chevrons-left i");
@@ -32,6 +37,9 @@ $(document).ready(function () {
             next();
         }
     });
+
+    // Autoscroll
+    // setInterval(5000, next)
 
     // FUNCTIONS
 
@@ -112,6 +120,8 @@ $(document).ready(function () {
             activeSelect = activeSelect.prev(".controls__click");
         }
         activeSelect.toggleClass("controls__click--selected");
+        // Stop autoscroll
+        setInterval(autoscroll, 5000);
     }
 
     /**
