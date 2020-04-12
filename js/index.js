@@ -157,8 +157,7 @@ $(document).ready(function () {
         } else {
             controlsDiv.empty();
             $(".img-collection").html(
-                "<img class='image animated fadeOut delay-2s resize--vh' src='img/spock-dj.jpg' alt='' />" +
-                    "<img class='image resize' src='img/boldlygo.jpg' alt='' />" +
+                "<img class='image resize' src='img/boldlygo.jpg' alt='' />" +
                     "<img class='image resize' src='img/Art-of-Cast.jpg' alt='' />" +
                     "<img class='image resize' src='img/spockirk.jpg' alt='' />" +
                     "<img class='image resize' src='img/spockirksulu.jpg' alt='' />" +
@@ -169,7 +168,8 @@ $(document).ready(function () {
                     "<img class='image resize' src='img/star-trek.jpg' alt='' />" +
                     "<img class='image resize' src='img/cast.jpg' alt='' />" +
                     "<img class='image resize' src='img/concert.jpg' alt='' />" +
-                    "<img class='image resize' src='img/nimoy.jpg' alt='' />"
+                    "<img class='image resize' src='img/nimoy.jpg' alt='' />" +
+                    "<img class='image animated fadeOut delay-2s resize--vh' src='img/spock-dj.jpg' alt='' />"
             );
             initImage();
             initSelectorCircle();
