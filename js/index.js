@@ -74,9 +74,6 @@ $(document).ready(function () {
         activeSelect = $(".controls__click--circle:first-child");
         activeSelect.addClass("controls__click--selected");
         controlsClick = $(".controls__click--circle");
-        console.log(controlsDiv);
-        console.log(activeSelect);
-        console.log(controlsClick);
     }
 
     /**
@@ -140,25 +137,30 @@ $(document).ready(function () {
 
     var space = $(".space");
     space.click(function () {
-        controlsDiv.empty();
-        $(".img-collection").html(
-            "<img class='image animated fadeOut delay-2s resize--vh' src='img/spock-dj.jpg' alt='' />" +
-                "<img class='image resize' src='img/boldlygo.jpg' alt='' />" +
-                "<img class='image resize' src='img/star-trek.jpg' alt='' />" +
-                "<img class='image resize' src='img/cast.jpg' alt='' />" +
-                "<img class='image resize' src='img/concert.jpg' alt='' />" +
-                "<img class='image resize' src='img/peace.jpg' alt='' />"
-        );
-        initImage();
-        initSelectorCircle();
-        $("body").css("background-image", "url(img/space.jpg)");
         var music = $("audio");
-        music[0].play();
-        space.addClass("animated flash");
-        $(".space span").replaceWith("Live long and prosper 🖖");
+        if ($(".space span").html() == "Live long and prosper 🖖") {
+            music[0].pause();
+        } else {
+            controlsDiv.empty();
+            $(".img-collection").html(
+                "<img class='image animated fadeOut delay-2s resize--vh' src='img/spock-dj.jpg' alt='' />" +
+                    "<img class='image resize' src='img/boldlygo.jpg' alt='' />" +
+                    "<img class='image resize' src='img/star-trek.jpg' alt='' />" +
+                    "<img class='image resize' src='img/cast.jpg' alt='' />" +
+                    "<img class='image resize' src='img/concert.jpg' alt='' />" +
+                    "<img class='image resize' src='img/peace.jpg' alt='' />"
+            );
+            initImage();
+            initSelectorCircle();
+            $("body").css("background-image", "url(img/space.jpg)");
+            music[0].play();
+            space.addClass("animated flash");
+            $(".space span").html("Live long and prosper 🖖");
+            console.log($(".space span").html() == "Live long and prosper 🖖");
 
-        // Bugfix:
-        controlsClick.click(selectorClick);
+            // Bugfix:
+            controlsClick.click(selectorClick);
+        }
     });
 
     // end Doc ready
