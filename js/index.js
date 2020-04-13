@@ -123,7 +123,7 @@ $(document).ready(function () {
         }
         activeSelect.toggleClass("controls__click--selected");
         // Stop autoscroll
-        setInterval(autoscroll, 5000);
+        // setInterval(autoscroll, 5000);
     }
 
     /**

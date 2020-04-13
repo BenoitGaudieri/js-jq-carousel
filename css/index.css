@@ -277,6 +277,20 @@ body {
     cursor: pointer;
 }
 
+.chevrons:hover {
+    animation: color-rotate 1s infinite alternate;
+}
+
+@keyframes color-rotate {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Selector */
 .controls {
     display: flex;
     justify-content: space-around;
